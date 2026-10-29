@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('PULL') {
             steps {
-                git 'https://github.com/chetanraval07/jenkins2.0-B34.git'
+                git 'https://github.com/vishalrode255/jenkins-project.git'
                 echo 'PULL SUCCESS'
             }
         }
