@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('PULL') {
             steps {
@@ -7,16 +8,22 @@ pipeline {
                 echo 'PULL SUCCESS'
             }
         }
+
         stage('BUILD') {
             steps {
+                dir('backend') {
+                    sh 'mvn clean package -DskipTests'
+                }
                 echo 'BUILD SUCCESS'
             }
         }
+
         stage('TEST') {
             steps {
                 echo 'TEST SUCCESS'
             }
         }
+
         stage('DEPLOY') {
             steps {
                 echo 'DEPLOY SUCCESS'
@@ -24,3 +31,4 @@ pipeline {
         }
     }
 }
+```
